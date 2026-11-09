@@ -1,0 +1,8 @@
+/* Physics and math component demo: scenes 1-7; cue phrases refer to its narration. */
+function scene1(s){ let d=graph(s,{x:200,y:440,w:1300,h:440,xmin:-3,xmax:3,ymin:-2,ymax:6,xlabel:'x',ylabel:'y',at:0.5,curves:[{fn:x=>x*x,at:cue('parabola'),dur:2.2,accent:true,label:'y = x squared',lx:-420,ly:10},{fn:x=>2*x+1,at:cue('straight line'),dur:1.6,dash:true,label:'a line',lx:-210,ly:-30}],pts:[{x:1,y:3,at:cue('cross'),label:'they cross'}]}); return scn(s,["A curve and a line cross."],d,{cx:200,cy:900}); }
+function scene2(s){ return scn(s,["Sine is a shadow of a circle."],unitCircle(s,{cx:560,cy:660,r:200,at:0.5,speed:0.9,trace:true,tw:760,rx:360,ry:420}),{cx:560,cy:660}); }
+function scene3(s){ return scn(s,["Vectors add tip to tail."],vecAdd(s,{ox:360,oy:800,scale:120,vecs:[{x:4,y:1,label:'wind',at:cue('wind')},{x:2,y:3,label:'boat',at:cue('boat')}],sumAt:cue('result'),sumLabel:'path'}),{cx:360,cy:800}); }
+function scene4(s){ return scn(s,["Sideways and up are independent."],projectile(s,{x:200,y:860,v0:22,angle:55,at:0.9,dur:4.5,w:1300,h:330}),{cx:200,cy:860}); }
+function scene5(s){ return scn(s,["A spring swings and settles."],spring(s,{x:200,y:620,len:480,amp:110,omega:3.4,damp:0.3,at:0.8,px:1050,pw:700}),{cx:200,cy:620}); }
+function scene6(s){ let d=wave(s,{x:200,y:650,w:1450,h:220,waves:3,freq:0.45,at:0.6,px:0.3,lambdaAt:cue('wavelength'),lambdaLabel:'one wavelength'}); d+=note(340,880,"the particle only moves up and down",s,cue("particle"),{fill:ACC}); return scn(s,["Waves carry energy, not matter."],d,{cx:200,cy:650}); }
+function scene7(s){ return scn(s,["Planets sweep equal areas."],orbit(s,{cx:1150,cy:650,a:340,e:0.55,period:9,at:0.6,sweepT:1.1}),{cx:1150,cy:650,push:0.02}); }

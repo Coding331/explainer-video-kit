@@ -1,0 +1,8 @@
+/* Biology/chemistry component demo: scenes 1-6 of a cell-biology video; cue phrases refer to its narration. */
+function scene1(s){ const m=MOL.glucose(); let d=molecule(s,Object.assign({x:620,y:640,scale:150,at:0.9,jig:2},m)); d+=note(1000,520,"a glucose ring",s,cue("glucose"),{fill:ACC}); return scn(s,["Sugar is a ring."],d,{cx:620,cy:640}); }
+function scene2(s){ const m=MOL.aminoAcid(); let d=molecule(s,Object.assign({x:520,y:620,scale:170,at:0.9,jig:2},m)); d+=note(1200,860,"the same backbone, any side group R",s,cue("side group")); return scn(s,["Amino acids share a backbone."],d,{cx:520,cy:620}); }
+function scene3(s){ const m=MOL.water(); let d=molecule(s,Object.assign({x:700,y:640,scale:200,at:0.9,jig:3},m)); d+=molecule(s,Object.assign({x:1300,y:640,scale:200,at:cue("second"),jig:3},MOL.water())); return scn(s,["Water is small and bent."],d,{cx:700,cy:640}); }
+function scene4(s){ let d=helix(s,{x:160,y:680,w:1500,h:360,turns:2.5,rungs:26,at:0.8,speed:0.9,mark:Math.floor(13+4*Math.sin(s))}); d+=note(1000,470,"two strands, paired rungs",s,cue("paired")); return scn(s,["DNA is a twisted ladder."],d,{cx:160,cy:680}); }
+function scene5(s){ let d=membrane(s,{x:160,y:520,w:1500,n:26,at:0.8,pore:[11,13]}); d+=note(1000,450,"a channel through the bilayer",s,cue("channel"),{fill:ACC}); return scn(s,["Membranes are two layers."],d,{cx:160,cy:700}); }
+function scene6(s){ let d=cycle(s,{cx:640,cy:650,rx:420,ry:220,items:[{text:"Glycolysis",at:cue("Glycolysis")},{text:"Krebs cycle",at:cue("Krebs"),accent:true},{text:"Electron transport",at:cue("Electron")}]});
+  d+=enzyme(s,{x:1480,y:780,at:cue("enzyme"),bindAt:cue("fits"),splitAt:cue("splits")}); return scn(s,["Respiration is a cycle."],d,{push:0.02}); }

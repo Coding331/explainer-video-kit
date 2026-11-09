@@ -1,0 +1,7 @@
+# Brief for a scene-writing agent (copy the filled-in header into the prompt, do not paste this whole file)
+You write scenes <FROM>-<TO> of the video in this folder. Prefix for your helper functions and files: <PREFIX>_.
+1. Read API.md, examples/ex_components.js and examples/ex_scenes.js. Use the components first; write raw SVG/simulations only for the one moving thing the components cannot do. Read script.json only for your scenes. Narration is FROZEN: do not edit script.json, timing.json, audio or any file in engine/.
+2. Shared helpers go in `scenes/<PREFIX>_00.js` (no scene functions in it). Write `scenes/<PREFIX>_<n>.js` (one file per 3-6 scenes), defining `function scene<id>(s)` for each id. Write each scene as soon as it is designed, so a stop never loses work.
+3. Each scene: one main moving thing obeying a real rule (a closed form, a simTable, or a seeded walk); at least 3 timed events whose times come from cue("..."); no static stretch longer than 3 s (use cam() push-in or a slow highlight); everything finished by END(); max 2 live readouts; labels <= 12 words; text min 30 px; accent used for the one meaning given below.
+4. Check with `python3 tool.py lint <your ids>` until it prints all clear, then look at ONE contact sheet per scene (`python3 tool.py sheet <id>`) to judge taste (not to find overlaps: lint finds those). Do not render videos.
+5. Reply in at most 5 lines: scenes done, anything you could not fix. Accent meaning: <ACCENT>. Subject notes: <NOTES>.
